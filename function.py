@@ -5,19 +5,12 @@ import numpy as np
 import tensorflow as tf
 
 class hysterisis_curve:
-    def __init__(self, x_tr, y_tr, x_te, y_te, beta, kb = 0.5, ka = 5.0, alfa = 1.0):
+    def __init__(self, x_tr, y_tr, x_te, y_te):
         self.x_tr = x_tr
         self.y_tr = y_tr
         self.x_te = x_te
         self.y_te = y_te
-        self.beta = beta
-        self.kb = kb
-        self.ka = ka
-        self.alfa = alfa
-        self.u0 = -(1 / (2 * self.alfa)) * np.log(10 ** -20 / (self.ka - self.kb))
-        self.f0 = ((self.ka - self.kb) / (2 * self.alfa)) * (1 - np.exp(-2 * self.alfa * self.u0))
         self.strategy = tf.distribute.MirroredStrategy()  # multi-GPU strategy
-        self.model_pinn = None
         self.optimizer = tf.keras.optimizers.Adam(learning_rate=0.01)
 
     def lstm_model(self):
@@ -99,7 +92,7 @@ class PINN(tf.keras.Model):
 
 
 
-def make_data(self, dt=0.01, total_time = 10):
+def make_data(dt=0.01, total_time = 10):
     # APPLIED DISPLACEMENT TIME HISTORY
     dt = dt
     t = np.arange(0, total_time + dt, dt)
