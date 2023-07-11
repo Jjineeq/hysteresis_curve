@@ -92,6 +92,60 @@ class PINN(tf.keras.Model):
 
 
 
+class PINN_BoucWen(tf.keras.Model):
+    def __init__(self, output_dim):
+        super().__init__()
+        self.hidden_layer_1 = tf.keras.layers.Dense(units=256, activation=tf.nn.relu)
+        self.hidden_layer_2 = tf.keras.layers.Dense(units=128, activation=tf.nn.relu)
+        self.output_layer_z = tf.keras.layers.Dense(units=1)  # To predict z
+        self.output_layer_f = tf.keras.layers.Dense(units=output_dim)  # To predict F(t)
+
+    def call(self, inputs):
+        x = self.hidden_layer_1(inputs)
+        x = self.hidden_layer_2(x)
+        z = self.output_layer_z(x)
+        f = self.output_layer_f(x)
+        return z, f  # Return both z and F(t)
+
+def compute_boucwen_dynamics(u, z, A, B, G, n):
+    # No need to compute gradients here as TensorFlow can automatically compute them during training
+    # z = tf.clip_by_value(z, -1e2, 1e2)
+    Z_dot = A*u - B*(tf.abs(u)*tf.abs(z)**(n-1)*z) - G*u*tf.abs(z)**n
+    return Z_dot
+
+def boucwen_loss(y_true, y_pred_f, u, z_pred, A, B, G, n):
+    y_true = tf.cast(y_true, dtype=tf.float32)
+    y_true = tf.expand_dims(y_true, axis=-1)
+
+    Z_dot_pred = compute_boucwen_dynamics(u, z_pred, A, B, G, n)
+    
+    # Compute physics_loss and data_loss
+    physics_loss = tf.reduce_mean(tf.square(Z_dot_pred - z_pred))  # Z_dot_pred should be equal to z_pred according to the Bouc-Wen model
+    data_loss = tf.reduce_mean(tf.square(y_true - y_pred_f))  # Predicted F(t) should be close to the true values
+
+    return 0.5 * physics_loss + 0.5 * data_loss  
+
+def model_pinn_boucwen(x, training):
+    return model_pinn_boucwen(x, training=training)
+
+
+def train_step_boucwen(x_tr, y_tr, A, B, G, n):
+    optimizer = tf.keras.optimizers.Adam(learning_rate=0.01)
+    u = x_tr[:, 0]
+    u = tf.convert_to_tensor(u)
+
+    with tf.GradientTape() as tape:
+        z_pred, y_pred_f = model_pinn_boucwen(x_tr, training=True)
+        loss_value = boucwen_loss(y_tr, y_pred_f, u, z_pred, A, B, G, n)
+    gradients = tape.gradient(loss_value, model_pinn_boucwen.trainable_variables)
+    optimizer.apply_gradients(zip(gradients, model_pinn_boucwen.trainable_variables))
+    return loss_value
+
+
+
+
+
+
 def make_data(dt=0.01, total_time = 10):
     # APPLIED DISPLACEMENT TIME HISTORY
     dt = dt
