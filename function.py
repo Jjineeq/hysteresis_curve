@@ -22,8 +22,9 @@ class hysterisis_curve:
         return lstm_model
     
     def lstm_fit(self, epochs=100, batch_size=1):
-        self.lstm_model_instance = self.lstm_model()
-        self.lstm_model_instance.fit(self.x_tr, self.y_tr, epochs = epochs, batch_size = batch_size)
+        with self.strategy.scope():
+            self.lstm_model_instance = self.lstm_model()
+            self.lstm_model_instance.fit(self.x_tr, self.y_tr, epochs = epochs, batch_size = batch_size)
         return self.lstm_model_instance
     
     def lstm_predict(self):
