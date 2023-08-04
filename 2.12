@@ -1,0 +1,55 @@
+Requirement already satisfied: tensorflow in c:\users\user\anaconda3\envs\gpu\lib\site-packages (2.9.0)
+Collecting tensorflow
+  Using cached tensorflow-2.13.0-cp310-cp310-win_amd64.whl (1.9 kB)
+Collecting tensorflow-intel==2.13.0
+  Using cached tensorflow_intel-2.13.0-cp310-cp310-win_amd64.whl (276.5 MB)
+Requirement already satisfied: astunparse>=1.6.0 in c:\users\user\anaconda3\envs\gpu\lib\site-packages (from tensorflow-intel==2.13.0->tensorflow) (1.6.3)
+Requirement already satisfied: termcolor>=1.1.0 in c:\users\user\anaconda3\envs\gpu\lib\site-packages (from tensorflow-intel==2.13.0->tensorflow) (2.1.0)
+Requirement already satisfied: grpcio<2.0,>=1.24.3 in c:\users\user\anaconda3\envs\gpu\lib\site-packages (from tensorflow-intel==2.13.0->tensorflow) (1.48.2)
+Requirement already satisfied: flatbuffers>=23.1.21 in c:\users\user\anaconda3\envs\gpu\lib\site-packages (from tensorflow-intel==2.13.0->tensorflow) (23.5.26)
+Collecting keras<2.14,>=2.13.1
+  Using cached keras-2.13.1-py3-none-any.whl (1.7 MB)
+Requirement already satisfied: tensorflow-io-gcs-filesystem>=0.23.1 in c:\users\user\anaconda3\envs\gpu\lib\site-packages (from tensorflow-intel==2.13.0->tensorflow) (0.31.0)
+Collecting protobuf!=4.21.0,!=4.21.1,!=4.21.2,!=4.21.3,!=4.21.4,!=4.21.5,<5.0.0dev,>=3.20.3
+  Using cached protobuf-4.23.4-cp310-abi3-win_amd64.whl (422 kB)
+Requirement already satisfied: numpy<=1.24.3,>=1.22 in c:\users\user\anaconda3\envs\gpu\lib\site-packages (from tensorflow-intel==2.13.0->tensorflow) (1.24.3)
+Requirement already satisfied: opt-einsum>=2.3.2 in c:\users\user\anaconda3\envs\gpu\lib\site-packages (from tensorflow-intel==2.13.0->tensorflow) (3.3.0)
+Requirement already satisfied: tensorflow-estimator<2.14,>=2.13.0 in c:\users\user\anaconda3\envs\gpu\lib\site-packages (from tensorflow-intel==2.13.0->tensorflow) (2.13.0)
+Collecting tensorboard<2.14,>=2.13
+  Using cached tensorboard-2.13.0-py3-none-any.whl (5.6 MB)
+Requirement already satisfied: absl-py>=1.0.0 in c:\users\user\anaconda3\envs\gpu\lib\site-packages (from tensorflow-intel==2.13.0->tensorflow) (1.3.0)
+Requirement already satisfied: gast<=0.4.0,>=0.2.1 in c:\users\user\anaconda3\envs\gpu\lib\site-packages (from tensorflow-intel==2.13.0->tensorflow) (0.4.0)
+Requirement already satisfied: google-pasta>=0.1.1 in c:\users\user\anaconda3\envs\gpu\lib\site-packages (from tensorflow-intel==2.13.0->tensorflow) (0.2.0)
+Requirement already satisfied: libclang>=13.0.0 in c:\users\user\anaconda3\envs\gpu\lib\site-packages (from tensorflow-intel==2.13.0->tensorflow) (16.0.6)
+Requirement already satisfied: wrapt>=1.11.0 in c:\users\user\anaconda3\envs\gpu\lib\site-packages (from tensorflow-intel==2.13.0->tensorflow) (1.14.1)
+Requirement already satisfied: typing-extensions<4.6.0,>=3.6.6 in c:\users\user\anaconda3\envs\gpu\lib\site-packages (from tensorflow-intel==2.13.0->tensorflow) (4.5.0)
+Requirement already satisfied: setuptools in c:\users\user\anaconda3\envs\gpu\lib\site-packages (from tensorflow-intel==2.13.0->tensorflow) (66.0.0)
+Requirement already satisfied: six>=1.12.0 in c:\users\user\anaconda3\envs\gpu\lib\site-packages (from tensorflow-intel==2.13.0->tensorflow) (1.16.0)
+Requirement already satisfied: packaging in c:\users\user\anaconda3\envs\gpu\lib\site-packages (from tensorflow-intel==2.13.0->tensorflow) (23.0)
+Requirement already satisfied: h5py>=2.9.0 in c:\users\user\anaconda3\envs\gpu\lib\site-packages (from tensorflow-intel==2.13.0->tensorflow) (3.7.0)
+Requirement already satisfied: wheel<1.0,>=0.23.0 in c:\users\user\anaconda3\envs\gpu\lib\site-packages (from astunparse>=1.6.0->tensorflow-intel==2.13.0->tensorflow) (0.38.4)
+Requirement already satisfied: requests<3,>=2.21.0 in c:\users\user\anaconda3\envs\gpu\lib\site-packages (from tensorboard<2.14,>=2.13->tensorflow-intel==2.13.0->tensorflow) (2.28.1)
+Collecting google-auth-oauthlib<1.1,>=0.5
+  Using cached google_auth_oauthlib-1.0.0-py2.py3-none-any.whl (18 kB)
+Requirement already satisfied: tensorboard-data-server<0.8.0,>=0.7.0 in c:\users\user\anaconda3\envs\gpu\lib\site-packages (from tensorboard<2.14,>=2.13->tensorflow-intel==2.13.0->tensorflow) (0.7.1)
+Requirement already satisfied: markdown>=2.6.8 in c:\users\user\anaconda3\envs\gpu\lib\site-packages (from tensorboard<2.14,>=2.13->tensorflow-intel==2.13.0->tensorflow) (3.4.1)
+Requirement already satisfied: google-auth<3,>=1.6.3 in c:\users\user\anaconda3\envs\gpu\lib\site-packages (from tensorboard<2.14,>=2.13->tensorflow-intel==2.13.0->tensorflow) (2.6.0)
+Requirement already satisfied: werkzeug>=1.0.1 in c:\users\user\anaconda3\envs\gpu\lib\site-packages (from tensorboard<2.14,>=2.13->tensorflow-intel==2.13.0->tensorflow) (2.2.3)
+Requirement already satisfied: rsa<5,>=3.1.4 in c:\users\user\anaconda3\envs\gpu\lib\site-packages (from google-auth<3,>=1.6.3->tensorboard<2.14,>=2.13->tensorflow-intel==2.13.0->tensorflow) (4.7.2)
+Requirement already satisfied: cachetools<6.0,>=2.0.0 in c:\users\user\anaconda3\envs\gpu\lib\site-packages (from google-auth<3,>=1.6.3->tensorboard<2.14,>=2.13->tensorflow-intel==2.13.0->tensorflow) (4.2.2)
+Requirement already satisfied: pyasn1-modules>=0.2.1 in c:\users\user\anaconda3\envs\gpu\lib\site-packages (from google-auth<3,>=1.6.3->tensorboard<2.14,>=2.13->tensorflow-intel==2.13.0->tensorflow) (0.2.8)
+Requirement already satisfied: requests-oauthlib>=0.7.0 in c:\users\user\anaconda3\envs\gpu\lib\site-packages (from google-auth-oauthlib<1.1,>=0.5->tensorboard<2.14,>=2.13->tensorflow-intel==2.13.0->tensorflow) (1.3.0)
+Collecting google-auth<3,>=1.6.3
+  Using cached google_auth-2.22.0-py2.py3-none-any.whl (181 kB)
+Requirement already satisfied: urllib3<2.0 in c:\users\user\anaconda3\envs\gpu\lib\site-packages (from google-auth<3,>=1.6.3->tensorboard<2.14,>=2.13->tensorflow-intel==2.13.0->tensorflow) (1.26.15)
+Requirement already satisfied: certifi>=2017.4.17 in c:\users\user\anaconda3\envs\gpu\lib\site-packages (from requests<3,>=2.21.0->tensorboard<2.14,>=2.13->tensorflow-intel==2.13.0->tensorflow) (2023.7.22)
+Requirement already satisfied: charset-normalizer<3,>=2 in c:\users\user\anaconda3\envs\gpu\lib\site-packages (from requests<3,>=2.21.0->tensorboard<2.14,>=2.13->tensorflow-intel==2.13.0->tensorflow) (2.0.4)
+Requirement already satisfied: idna<4,>=2.5 in c:\users\user\anaconda3\envs\gpu\lib\site-packages (from requests<3,>=2.21.0->tensorboard<2.14,>=2.13->tensorflow-intel==2.13.0->tensorflow) (3.4)
+Requirement already satisfied: MarkupSafe>=2.1.1 in c:\users\user\anaconda3\envs\gpu\lib\site-packages (from werkzeug>=1.0.1->tensorboard<2.14,>=2.13->tensorflow-intel==2.13.0->tensorflow) (2.1.1)
+Requirement already satisfied: pyasn1<0.5.0,>=0.4.6 in c:\users\user\anaconda3\envs\gpu\lib\site-packages (from pyasn1-modules>=0.2.1->google-auth<3,>=1.6.3->tensorboard<2.14,>=2.13->tensorflow-intel==2.13.0->tensorflow) (0.4.8)
+Requirement already satisfied: oauthlib>=3.0.0 in c:\users\user\anaconda3\envs\gpu\lib\site-packages (from requests-oauthlib>=0.7.0->google-auth-oauthlib<1.1,>=0.5->tensorboard<2.14,>=2.13->tensorflow-intel==2.13.0->tensorflow) (3.2.2)
+Installing collected packages: protobuf, keras, google-auth, google-auth-oauthlib, tensorboard, tensorflow-intel, tensorflow
+  Attempting uninstall: protobuf
+    Found existing installation: protobuf 3.20.0
+    Uninstalling protobuf-3.20.0:
+      Successfully uninstalled protobuf-3.20.0
